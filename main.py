@@ -187,20 +187,25 @@ if __name__ == "__main__":
 
     now = datetime.datetime.now()
     hour = now.strftime("%H")
+
+    # 咕咕 临时用网易云
+    '''
     # 如果在下面的时段
-    
     if hour in ["00"]:
-        minute = random.randint(1, 10)
-        print("[YYZ]0点到 网抑云任务启动 随机等待%s分" % (minute))
-        time.sleep(minute*60)
-        GroupList = bot.getGroupList()
-        # print("获取到的群列表:%s" % (GroupList))
-        Group_Blask_List = ["173225643","512454918","930325107","1016977635","1142184904"]  # 不发送的群
-        for groupID in GroupList:
+        pass
+    '''
+    
+    minute = random.randint(1, 10)
+    print("[YYZ]0点到 网抑云任务启动 随机等待%s分" % (minute))
+    time.sleep(minute*60)
+    GroupList = bot.getGroupList()
+    # print("获取到的群列表:%s" % (GroupList))
+    Group_Blask_List = ["173225643","512454918","930325107","1016977635","1142184904"]  # 不发送的群
+    for groupID in GroupList:
 
-            if str(groupID) in Group_Blask_List:
-                continue
+        if str(groupID) in Group_Blask_List:
+            continue
 
-            con, picUrl = yyz.getYyz()
-            bot.sendGoupPic(groupID, picUrl,con)
-            time.sleep(5)
+        con, picUrl = yyz.getYyz()
+        bot.sendGoupPic(groupID, picUrl,con)
+        time.sleep(5)
